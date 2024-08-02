@@ -116,7 +116,8 @@
 <body>
     <div class="container">
         <h1>Finalizar Pedido</h1>
-        <p>Por favor, efetue o pagamento via Pix. Chave Pix: 47.160.589/0001-59 e envie o comprovante assim que finalizar o pagamento.</p>
+        <p>Por favor, efetue o pagamento via Pix. Chave Pix: 47.160.589/0001-59 e envie o comprovante assim
+        que finalizar o pagamento.</p>
         <ul id="carrinho"></ul>
         <p id="totalPedido"></p>
         <input type="text" id="idJogador" placeholder="ID do Jogador (8 a 10 dígitos)" pattern="\d{8,10}" required>
@@ -166,7 +167,10 @@
             mensagemWhatsApp += "ID do Jogador: " + idJogador + "\n\n";
 
             carrinhoItems.forEach(function(item) {
-                mensagemWhatsApp += item.textContent + "\n";
+                var itemTexto = item.textContent.split(' - ');
+                var nomeItem = itemTexto[0];
+                var precoItem = itemTexto[1];
+                mensagemWhatsApp += "Dimas : " + nomeItem.split(' ')[0] + " Por " + precoItem + "\n";
             });
 
             mensagemWhatsApp += "\nTotal do Pedido: R$ " + totalPedido.toFixed(2) + "\n\n";
